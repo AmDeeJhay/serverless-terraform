@@ -5,9 +5,9 @@ import ItemForm from '@/components/ItemForm'
 import { getItems, Item } from '@/lib/api'
 
 export default function Home() {
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState<Item[]>([])
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [error, setError] = useState<string | null>(null)
 
   const fetchItems = async () => {
     try {

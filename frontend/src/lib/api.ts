@@ -21,12 +21,12 @@ export interface CreateItemRequest {
   description: string
 }
 
-export const createItem = async (item: CreateItemRequest): Promise => {
+export const createItem = async (item: CreateItemRequest): Promise<Item> => {
   const response = await api.post('/items', item)
   return response.data
 }
 
-export const getItems = async (): Promise => {
+export const getItems = async (): Promise<Item[]> => {
   const response = await api.get('/items')
   return response.data
 }

@@ -1,7 +1,7 @@
 import { APIGatewayProxyHandler, APIGatewayProxyResult } from 'aws-lambda'
 import { scanItems } from '@/lib/dynamodb'
 
-export const handler: APIGatewayProxyHandler = async (event): Promise => {
+export const handler: APIGatewayProxyHandler = async (event): Promise<APIGatewayProxyResult> => {
   console.log('Get items request:', JSON.stringify(event, null, 2))
 
   const headers = {

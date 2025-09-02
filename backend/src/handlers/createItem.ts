@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { putItem } from '@/lib/dynamodb'
 import { CreateItemRequest, Item } from '@/types/item'
 
-export const handler: APIGatewayProxyHandler = async (event): Promise => {
+export const handler: APIGatewayProxyHandler = async (event): Promise<APIGatewayProxyResult> => {
   console.log('Create item request:', JSON.stringify(event, null, 2))
 
   const headers = {

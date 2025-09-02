@@ -10,10 +10,11 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@types/axios": "^0.9.36",
+    "axios": "^1.11.0",
     "next": "14.0.0",
     "react": "^18",
-    "react-dom": "^18",
-    "axios": "^1.6.0"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@types/node": "^20",
