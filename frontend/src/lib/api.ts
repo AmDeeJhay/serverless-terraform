@@ -22,11 +22,11 @@ export interface CreateItemRequest {
 }
 
 export const createItem = async (item: CreateItemRequest): Promise<Item> => {
-  const response = await api.post('/items', item)
+  const response = await api.post<Item>('/items', item)
   return response.data
 }
 
 export const getItems = async (): Promise<Item[]> => {
-  const response = await api.get('/items')
+  const response = await api.get<Item[]>('/items')
   return response.data
 }
