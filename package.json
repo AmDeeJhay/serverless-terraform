@@ -1,0 +1,45 @@
+{
+  "name": "fullstack-serverless",
+  "version": "1.0.0",
+  "description": "Full-stack serverless application with Next.js, AWS Lambda, and Terraform",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev:frontend": "cd frontend && npm run dev",
+    "build:frontend": "cd frontend && npm run build",
+    "build:backend": "cd backend && npm run build",
+    "build:all": "npm run build:backend && npm run build:frontend",
+    "lint:frontend": "cd frontend && npm run lint",
+    "lint:backend": "cd backend && npm run lint",
+    "lint:all": "npm run lint:frontend && npm run lint:backend",
+    "test:backend": "cd backend && npm test",
+    "clean:backend": "cd backend && npm run clean",
+    "clean:all": "npm run clean:backend && cd frontend && rm -rf .next",
+    "terraform:init": "cd infra && terraform init",
+    "terraform:plan": "cd infra && terraform plan",
+    "terraform:apply": "cd infra && terraform apply",
+    "terraform:destroy": "cd infra && terraform destroy",
+    "package:lambda": "./scripts/package-lambda.sh",
+    "deploy:dev": "npm run build:all && npm run package:lambda && cd infra && terraform apply -auto-approve",
+    "deploy:prod": "NODE_ENV=production npm run build:all && npm run package:lambda && cd infra && terraform apply -var='environment=prod' -auto-approve"
+  },
+  "keywords": [
+    "serverless",
+    "nextjs",
+    "aws-lambda",
+    "terraform",
+    "typescript"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
